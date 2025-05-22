@@ -1,1 +1,2 @@
 Endless Runner is a simple running game with a running character Bob, who has to jump over obstacles, avoid enemies and collect powerups - such as speed increase or invincibility.
+As for the project itself, I had to move it to a new repository due to a submission issue. It was developed gradually over time, and I’m happy to explain any part of it.
