@@ -13,7 +13,7 @@ class Floor {
     }
   }
 
-  // Method to draw the floor and trees
+  // Draw the floor and trees
   draw() {
     // Draw the floor
     fill(0, 200, 0);
@@ -25,11 +25,11 @@ class Floor {
     });
   }
 
-  // Separate method to draw an individual tree
+  // Draw an individual tree
   drawTree(xPos) {
-    fill(139, 69, 19); // Tree trunk color
-    rect(xPos, this.y - 150, this.treeWidth, 150); // Adjust the height to make trees grow from the floor
-    fill(34, 139, 34); // Tree foliage color
-    ellipse(xPos + this.treeWidth / 2, this.y - 200, 120, 120); // Adjust foliage height to match the trunk
+    fill(139, 69, 19);
+    rect(xPos, this.y - 150, this.treeWidth, 150);
+    fill(34, 139, 34);
+    ellipse(xPos + this.treeWidth / 2, this.y - 200, 120, 120);
   }
 }
