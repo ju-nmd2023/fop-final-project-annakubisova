@@ -2,7 +2,7 @@
 class Player {
   constructor() {
     this.x = 0;
-    this.y = bobBaseY//floor.y;
+    this.y = bobBaseY; // floor.y;
     this.size = 50;
     this.yVelocity = 0;
     this.jumpStrength = 15;
@@ -19,8 +19,9 @@ class Player {
     this.speedBoostTimer = 0; // Tracks speed boost duration
     this.doublePointsTimer = 0; // Doublepoints duration
     this.isBeingPushed = false;
-    this.reasonForDeath = "Mayhaps, you perchance didnt turn right in the roundabout?";
-    }
+    this.reasonForDeath =
+      "Mayhaps, you perchance didnt turn right in the roundabout?";
+  }
 
   // Method for speed boost
   speedBoost() {
@@ -46,7 +47,6 @@ class Player {
     }
   }
 
-
   update() {
     this.pointMultiplierIncrease();
     if (this.isJumping) {
@@ -58,12 +58,11 @@ class Player {
         this.isJumping = false;
         this.yVelocity = 0;
       }
-      
     }
 
     // Reset speed after 5 seconds
     if (this.speedBoostTimer && millis() - this.speedBoostTimer > 5000) {
-      this.speedMultiplier = 1; //Reset speed multiplier to normal
+      this.speedMultiplier = 1; // Reset speed multiplier to normal
       this.speedBoostTimer = 0;
     }
 
@@ -72,21 +71,24 @@ class Player {
       this.invincible = false; // Reset invincibility
       this.invincibilityTimer = 0;
     }
-    
+
     // Reset double points after 5 seconds
     if (this.doublePointsTimer && millis() - this.doublePointsTimer > 5000) {
       this.doublePoints = 1; // Reset double points
       this.doublePointsTimer = 0;
     }
-
   }
   drawPoints() {
     let scoreToPrint = bob.pointMultiplier * this.doublePoints;
-    fill(0,0,0);
+    fill(0, 0, 0);
     textSize(30);
-    text("Distance: " + this.x.toFixed(0), width/12, height/12);  
-    text("Points: " + this.points.toFixed(0), width/12, height/12 + 35);
-    text("Multiplier: " + scoreToPrint.toFixed(1), width/12, height/12 + 70);
+    text("Distance: " + this.x.toFixed(0), width / 12, height / 12);
+    text("Points: " + this.points.toFixed(0), width / 12, height / 12 + 35);
+    text(
+      "Multiplier: " + scoreToPrint.toFixed(1),
+      width / 12,
+      height / 12 + 70
+    );
   }
   die() {
     if (!this.isDead && this.godMode) {
@@ -95,26 +97,26 @@ class Player {
     }
   }
 
-  getPoints(){
-    this.points += 1 * this.pointMultiplier * this.doublePoints * this.difficultyFactor;
+  getPoints() {
+    this.points +=
+      1 * this.pointMultiplier * this.doublePoints * this.difficultyFactor;
   }
-  
-  pointMultiplierIncrease(){
-    firstDigit = 0; 
+
+  pointMultiplierIncrease() {
+    firstDigit = 0;
     firstDigit = parseInt(this.x / 1000);
-    if (firstDigitBuffer < firstDigit)
-    {
+    if (firstDigitBuffer < firstDigit) {
       this.pointMultiplier += 0.1;
     }
     firstDigitBuffer = firstDigit;
-    }
+  }
 
   draw() {
     // Draw player character
     fill(0, 0, 255);
     rect(this.x + this.size / 4, this.y, this.size / 2, this.size); // Body
 
-    // Draw Bob's face as an ellipse
+    // Draw bob's face as an ellipse
     fill(255); // Solid white face
     ellipse(
       this.x + this.size / 2,
